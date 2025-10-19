@@ -3,5 +3,5 @@
 // Copy this file to config.js and add your actual token
 
 const CONFIG = {
-    MAPBOX_TOKEN: 'YOUR_MAPBOX_ACCESS_TOKEN'
+    MAPBOX_TOKEN: 'pk.eyJ1IjoiYWJkYWJkdGEiLCJhIjoiY21ndzRkNGF3MHFrMzJqcXd5eG9vYXZobSJ9.1eKaOZNElJdGpLw_5XHyYA'
 };
