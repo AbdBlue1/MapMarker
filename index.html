@@ -199,6 +199,7 @@
         </div>
     </div>
 
+    <script src="config.js"></script>
     <script src="data/national-rail-stations.js"></script>
     <script src="data/tfl-stations.js"></script>
     <script>
@@ -218,9 +219,7 @@
         });
         
         function initializeMap() {
-            mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
-            
-            if (mapboxgl.accessToken === 'YOUR_MAPBOX_ACCESS_TOKEN') {
+            if (typeof CONFIG === 'undefined' || !CONFIG.MAPBOX_TOKEN || CONFIG.MAPBOX_TOKEN === 'YOUR_MAPBOX_ACCESS_TOKEN') {
                 document.getElementById('loading').innerHTML = `
                     <div style="max-width: 500px;">
                         <h3 style="margin-bottom: 15px; color: #E63946;">⚠️ Mapbox Token Required</h3>
@@ -230,14 +229,17 @@
                             <li>Go to <a href="https://www.mapbox.com/" target="_blank" style="color: #06AED5;">mapbox.com</a></li>
                             <li>Create a free account (no credit card needed)</li>
                             <li>Copy your default public token (starts with pk.)</li>
-                            <li>Replace 'YOUR_MAPBOX_ACCESS_TOKEN' in index.html (line 222)</li>
+                            <li>Open <strong>config.js</strong> and replace 'YOUR_MAPBOX_ACCESS_TOKEN' with your token</li>
                             <li>Refresh this page</li>
                         </ol>
                         <p style="font-size: 13px; color: #666;">See MAPBOX_TOKEN_INSTRUCTIONS.md for detailed instructions.</p>
+                        <p style="font-size: 13px; color: #666; margin-top: 10px;"><strong>Note:</strong> The config.js file is gitignored and won't be uploaded to GitHub.</p>
                     </div>
                 `;
                 return;
             }
+            
+            mapboxgl.accessToken = CONFIG.MAPBOX_TOKEN;
             
             const map = new mapboxgl.Map({
                 container: 'map',

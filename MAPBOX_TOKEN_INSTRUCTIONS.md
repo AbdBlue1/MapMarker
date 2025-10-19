@@ -11,24 +11,29 @@ The map needs a Mapbox access token to display properly. Follow these simple ste
 5. Look for the **"Access tokens"** section
 6. Copy your **default public token** (it starts with `pk.`)
 
-## Step 2: Add Token to the Map
+## Step 2: Add Token to the Config File
 
-1. Open the file **`index.html`** in this project
-2. Find line 222 (or search for `YOUR_MAPBOX_ACCESS_TOKEN`)
-3. Replace `'YOUR_MAPBOX_ACCESS_TOKEN'` with your actual token
+1. Open the file **`config.js`** in this project
+2. Replace `'YOUR_MAPBOX_ACCESS_TOKEN'` with your actual token
 
 **Before:**
 ```javascript
-mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
+const CONFIG = {
+    MAPBOX_TOKEN: 'YOUR_MAPBOX_ACCESS_TOKEN'
+};
 ```
 
 **After (with your token):**
 ```javascript
-mapboxgl.accessToken = 'pk.eyJ1IjoieW91cnVzZXJuYW1lIiwi...'; // Your actual token
+const CONFIG = {
+    MAPBOX_TOKEN: 'pk.eyJ1IjoieW91cnVzZXJuYW1lIiwi...' // Your actual token here
+};
 ```
 
-4. Save the file
-5. Refresh your browser
+3. Save the file
+4. Refresh your browser
+
+**Important:** The `config.js` file is gitignored and will NOT be uploaded to GitHub, keeping your token secure!
 
 ## Step 3: Enjoy Your Map!
 
@@ -50,3 +55,17 @@ The free tier includes:
 - 50,000 map loads per month
 - Perfect for personal projects and testing
 - No credit card required
+
+## 🔒 Security Note (GitHub Upload)
+
+Your Mapbox token is stored in `config.js`, which is listed in `.gitignore`. This means:
+- ✅ Your token will **NOT** be uploaded to GitHub
+- ✅ The token stays private and secure
+- ✅ You can safely push your project to a public repository
+
+When someone clones your GitHub repo:
+1. They'll see `config.example.js` (template file)
+2. They'll need to create their own `config.js` file
+3. They'll add their own Mapbox token
+
+This is the standard way to handle API keys in open-source projects!

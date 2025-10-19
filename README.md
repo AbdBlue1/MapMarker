@@ -24,11 +24,41 @@ An interactive map displaying locations across the UK:
 1. Go to [mapbox.com](https://www.mapbox.com/) and create a free account
 2. Navigate to your [Account Dashboard](https://account.mapbox.com/)
 3. Copy your default public access token
-4. Open `index.html` and replace `'YOUR_MAPBOX_ACCESS_TOKEN'` with your actual token (around line 222)
+4. Open `config.js` and replace `'YOUR_MAPBOX_ACCESS_TOKEN'` with your actual token
 
 ### Run the Map
 
 The map is now running on this Replit! Simply click the webview to see it in action.
+
+## 🔒 Security (GitHub Upload)
+
+Your API token is protected! The project is configured to keep your Mapbox token secure:
+
+- ✅ Token stored in `config.js` (gitignored, won't be uploaded)
+- ✅ Template file `config.example.js` (safe to upload)
+- ✅ `.gitignore` configured properly
+
+**You can safely upload this project to GitHub!** See `GITHUB_UPLOAD_GUIDE.md` for detailed instructions.
+
+### For People Cloning This Repo
+
+If you clone this repository:
+
+1. Copy the config template:
+   ```bash
+   cp config.example.js config.js
+   ```
+
+2. Get a free Mapbox token from [mapbox.com](https://www.mapbox.com/)
+
+3. Open `config.js` and add your token:
+   ```javascript
+   const CONFIG = {
+       MAPBOX_TOKEN: 'your_token_here'
+   };
+   ```
+
+4. Open `index.html` in your browser or run a local server
 
 ## Data Sources
 
