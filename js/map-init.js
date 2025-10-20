@@ -1,15 +1,15 @@
-function initializeMap() {
+function initializeMap({ pretLocations, sainsburysLocations, nationalRailStations, tflStations }) {
     if (typeof CONFIG === 'undefined' || !CONFIG.MAPBOX_TOKEN || CONFIG.MAPBOX_TOKEN === 'YOUR_MAPBOX_ACCESS_TOKEN') {
         document.getElementById('loading').innerHTML = `
-            <div style="max-width: 500px;">
+            <div style="max-width:500px;">
                 <h3 style="color:#E63946;">⚠️ Mapbox Token Required</h3>
-                <p>Open <strong>js/config.js</strong> and replace 'YOUR_MAPBOX_ACCESS_TOKEN' with your token.</p>
-            </div>`;
+                <p>Replace 'YOUR_MAPBOX_ACCESS_TOKEN' in js/config.js with your token.</p>
+            </div>
+        `;
         return;
     }
 
     mapboxgl.accessToken = CONFIG.MAPBOX_TOKEN;
-
     const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/light-v11',
