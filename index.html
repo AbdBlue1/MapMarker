@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UK Locations Map</title>
+    <title>UK Locations Map - Rail, Pret, Sainsbury's & TfL</title>
+
+    <!-- Mapbox CSS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css" rel="stylesheet" />
+
+    <!-- Project CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body>
+    <!-- Map Container -->
     <div id="map"></div>
     <div id="loading" class="loading">Loading map data...</div>
 
+    <!-- Overlay with Layers -->
     <div class="map-overlay">
         <h3>Map Layers</h3>
+
         <div class="layer-toggle">
             <input type="checkbox" id="toggle-rail" checked>
             <label for="toggle-rail"><span class="marker-icon rail"></span>National Rail Stations</label>
@@ -36,12 +43,21 @@
         </div>
     </div>
 
+    <!-- Mapbox JS -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js"></script>
-<script src="js/config.js"></script>
-<script src="js/data-loader.js"></script>
-<script src="js/map-init.js"></script>
-<script src="js/layer-toggle.js"></script>
-<script src="data/national-rail-stations.js"></script>
-<script src="data/tfl-stations.js"></script>
+
+    <!-- Project JS -->
+    <script src="js/config.js"></script>
+    <script src="js/data-loader.js"></script>
+
+    <!-- Station Data -->
+    <script src="data/national-rail-stations.js"></script>
+    <script src="data/tfl-stations.js"></script>
+
+    <!-- Map Initialization -->
+    <script src="js/map-init.js"></script>
+
+    <!-- Layer Toggle -->
+    <script src="js/layer-toggle.js"></script>
 </body>
 </html>
